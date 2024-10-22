@@ -13,6 +13,6 @@ class EpreuveSeeder extends Seeder
      */
     public function run(): void
     {
-        Epreuve::factory()->count(20)->create();
+        Epreuve::factory()->count(5)->create();
     }
 }

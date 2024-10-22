@@ -63,9 +63,16 @@
                     <td>{{ $matiere->Libelle }}</td>
                     <td>{{ $matiere->Coef }}</td>
                 </tr>
+              
             @endforeach
+            <tr>
+                    <td colspan="3">
+                    <a class="btn btn-success centered" href="formMat" role="button">Ajouter</a>           
+                    </td>
+                </tr>
         </tbody>
-    </table>               
+    </table>  
+  
  </div>
 
             </div>
