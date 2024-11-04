@@ -14,6 +14,15 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache mod_rewrite for Laravel routing
 RUN a2enmod rewrite
 
+# Set the Apache document root to Laravel's public directory
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+
+# Ensure the Directory directive points to the public directory
+RUN echo '<Directory /var/www/html/public>\n\tAllowOverride All\n</Directory>' >> /etc/apache2/apache2.conf
+
+# Set the ServerName to suppress the warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Copy the Laravel project files to the container
 COPY . /var/www/html
 
