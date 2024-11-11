@@ -3,36 +3,62 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Matiere;
-use App\Models\Epreuve;
-
-
-
-
 
 class TestController extends Controller
 {
-    public function affiche1()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-
-        /*$matieres=Matiere::select()
-        ->join('epreuves','epreuves.matiere_id','=','matieres.id')
-        ->where('epreuves.id','=',5)->get();*/
-        $matieres = Epreuve::where('id', '=', "5")->first()->matieres;
-
-        return view('affres1', ['matieres' => $matieres]);
+        //
     }
-    public function affiche2()
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
+        //
+    }
 
-        /*$results=Epreuve::select()
-        ->join('matieres','matieres.id','=','epreuves.matiere_id')
-        ->where('matieres.Codemat','=','alg')->get();*/
-        $results = Epreuve::whereHas('matieres', fn($query) => $query->where('Codemat', 'vlo'))->get();
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
 
-        return view('affres2', ['results' => $results]);
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

@@ -11,15 +11,15 @@
                 <table class="table custom-table table-bordered">
                     <tr>
                         <td>
-                            <form id="form" action="{{url("../epreuves")}}" method="post">
+                            <form id="form" action="{{route("epreuves.update",$epreuve)}}" method="post">
                                 @csrf
-
+                                @method('PUT')
                                 <div class="form-group">
                                     <label for="nb">Numero</label>
                                     <br />
                                     <div class="input-group">
                                         <div class="input-group-addon"></div>
-                                        <input type="text" class="@error('nb') is-invalid @enderror" name="nb" placeholder="Numero d'epreuve" />
+                                        <input type="text" class="@error('nb') is-invalid @enderror" name="nb" placeholder="Numero d'epreuve" value="{{old('Codemat',$epreuve->Numero)}}" />
                                         @error('nb')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -31,7 +31,7 @@
                                     <br />
                                     <div class="input-group">
                                         <div class="input-group-addon"></div>
-                                        <input class="@error('dt') is-invalid @enderror" type="Date" name="dt" />
+                                        <input class="@error('dt') is-invalid @enderror" type="Date" name="dt" value="{{old('Codemat',$epreuve->Date)}}" />
                                         @error('dt')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -42,7 +42,7 @@
                                     <label for="username">Lieu</label>
                                     <div class="input-group">
                                         <div class="input-group-addon"> </div>
-                                        <input class="@error('li') is-invalid @enderror" type="text" name="li" placeholder="Lieu d'epreuve" />
+                                        <input value="{{old('Codemat',$epreuve->Lieu)}}" class="@error('li') is-invalid @enderror" type="text" name="li" placeholder="Lieu d'epreuve" />
                                         @error('li')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                            <button type="submit" class="btn btn-primary">Modifier</button>
 
         </form>
         </td>

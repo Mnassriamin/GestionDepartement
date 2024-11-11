@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('Date');
             $table->string('Lieu');
             $table->timestamps();
+            $table->foreignId('matiere_id')->constrained('matieres')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

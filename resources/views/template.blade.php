@@ -339,7 +339,6 @@ body{
 <body>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #009EDF;">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">Home</a>
     <button
       data-mdb-collapse-init
       class="navbar-toggler"
@@ -354,10 +353,10 @@ body{
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white" aria-current="page" href="epreuve">Epreuves</a>
+          <a class="nav-link text-white" aria-current="page" href="{{Route('epreuves.index')}}">Epreuves</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="matiere">Matieres</a>
+          <a class="nav-link text-white" href="{{Route('matieres.index')}}">Matieres</a>
         </li>
       </ul>
     </div>

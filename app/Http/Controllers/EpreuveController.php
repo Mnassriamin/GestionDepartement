@@ -3,45 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Epreuve;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Matiere;
 
 
 
 class EpreuveController extends Controller
 {
-    public function store(request $request)
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-
-        //DB::insert(query: "insert into epreuves (Numero, Date,Lieu) values ('1598','2024-02-03','LFE')");
-        //DB::insert(query: "insert into epreuves (Numero, Date,Lieu) values ('2006','2024-02-07','15984')");
+        $eps = Epreuve::all();
 
 
-        /*  DB::table('epreuves')->upsert(
-                [
-    
-                    ['Numero' => '911', 'Date' => '2001-02-19', 'Lieu' => '2001'],
-                    
-                ],
-                ['Numero', 'Date','Lieu']
-                
-            );  */
+        return view('affEpreuve', ['epreuves' => $eps]);
+    }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view(view: 'formEpreuve');
+    }
 
-        // Elequent 
-        /* Epreuve::upsert(
-                [
-    
-                    ['Numero' => '1584', 'Date' => '2009-02-19', 'Lieu' => 'ISET','matiere_id' => 2],
-                    
-                ],
-                ['Numero', 'Date','Lieu']
-                
-            );
-
-            return redirect('/epreuve');*/
-
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'nb' => 'bail|required|numeric',
             'li' => 'bail|required|max:20|alpha',
@@ -57,23 +50,49 @@ class EpreuveController extends Controller
         $ep->Lieu = $request->input('li');
         $ep->matiere_id = $request->input('mt');
         $ep->save();
-        return redirect('/epreuve');
+        return redirect('../epreuves');
     }
-    public function index()
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-
-        //$epreuves = DB::table('epreuves')->get();
-
-        //$epreuves = DB::select('select * from epreuves');
-
-        $epreuves = Epreuve::all();
-
-        return view('affEpreuve', ['epreuves' => $epreuves]);
+        //
     }
-    public function create()
-    {
-        $matieres = DB::table('matieres')->get();
 
-        return view('formEp', ['matieres' => $matieres]);
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $matieres = Matiere::get();
+        $epreuve = Epreuve::find($id);
+        return view('EditFormEp', compact('epreuve', 'matieres'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $ep=Epreuve::find($id);
+        $ep->Numero = $request->input('nb');
+        $ep->Date = $request->input('dt');
+        $ep->Lieu = $request->input('li');
+        $ep->matiere_id = $request->input('mt');
+        $ep->save();
+        return redirect('../epreuves');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $mat=Epreuve::find($id);
+        $mat->delete();
+        return redirect(route('epreuves.index'));
     }
 }

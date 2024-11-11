@@ -22,6 +22,7 @@
                                 <th>Numéro</th>
                                 <th>Date</th>
                                 <th>Lieu</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,14 @@
                                 <td>{{ $epreuve->Numero }}</td>
                                 <td>{{ $epreuve->Date }}</td>
                                 <td>{{ $epreuve->Lieu }}</td>
+                                <td>
+                                    <a href="{{route('epreuves.edit',$epreuve)}}" type="submit" class="btn btn-secondary">Edit</a>
+                                    <form action="{{ route('epreuves.destroy', $epreuve) }}" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -9,7 +9,7 @@ use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Validator;
 
 
-class MatController extends Controller
+class OldMatController extends Controller
 {
     public function store(request $request)
     {
@@ -19,11 +19,11 @@ class MatController extends Controller
         /*Matiere::upsert(
             [
                 ['Codemat' => 'alg', 'Libelle' => 'algorithmle', 'Coef' => 2],
-                
-                
+
+
             ],
             ['Codemat', 'Libelle','Coef']
-            
+
         );
         return redirect('/matiere');*/
 
@@ -42,7 +42,7 @@ class MatController extends Controller
         $mat->Libelle = $request->lb;
         $mat->Coef = $request->cf;
         $mat->save();
-        return redirect('/matiere');
+        return redirect('../matieres');
     }
     public function index()
     {
@@ -60,6 +60,5 @@ class MatController extends Controller
     public function create()
     {
 
-        return view(view: 'formMat');
     }
 }
