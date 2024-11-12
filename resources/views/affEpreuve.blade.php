@@ -9,7 +9,7 @@
                 <div class="panel-heading bg-dark text-white p-3">
                     <div class="row">
                         <div class="col-sm-12 d-flex justify-content-between align-items-center">
-                            <a href="formEp" class="btn btn-sm btn-primary">
+                            <a href="epreuves/create" class="btn btn-sm btn-primary">
                                 <i class="fa fa-plus-circle"></i> Ajouter
                             </a>
                         </div>
@@ -22,6 +22,7 @@
                                 <th>Numéro</th>
                                 <th>Date</th>
                                 <th>Lieu</th>
+                                <th>Matiere</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -31,13 +32,16 @@
                                 <td>{{ $epreuve->Numero }}</td>
                                 <td>{{ $epreuve->Date }}</td>
                                 <td>{{ $epreuve->Lieu }}</td>
+                                <td>{{ $epreuve->Matieres->Libelle }}</td>
                                 <td>
                                     <a href="{{route('epreuves.edit',$epreuve)}}" type="submit" class="btn btn-secondary">Edit</a>
-                                    <form action="{{ route('epreuves.destroy', $epreuve) }}" style="display: inline;">
+
+                                    <form action="{{ route('epreuves.destroy', $epreuve) }}" method="post" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
+
                                 </td>
                             </tr>
                             @endforeach

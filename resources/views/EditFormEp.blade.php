@@ -56,6 +56,7 @@
                                 <div class="input-group">
                                     <div class="input-group-addon"></div>
                                     <select class="custom-select" name="mt">
+                                    <option value="{{$epreuve->matieres->id }}">{{ $epreuve->matieres->Libelle }}</option>
                                         @foreach($matieres as $matiere)
                                         <option value="{{$matiere->id }}">{{ $matiere->Libelle }}</option>
                                         @endforeach

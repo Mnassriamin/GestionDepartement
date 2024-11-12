@@ -139,11 +139,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Matières et Épreuves</title>
     <style>
         .custom-table {
-            width: 80%;
+            width: 90%;
             margin: 20px auto;
             table-layout: fixed;
         }
@@ -189,7 +189,7 @@
 }
 .panel .panel-heading .form-horizontal .form-control{
     display: inline-block;
-    width: 80px;
+    width: 70%;
     border: none;
     border-radius: 0;
 }
@@ -210,7 +210,7 @@
     border-bottom: none;
 }
 .panel .panel-body .table thead tr th:nth-of-type(1){ width: 120px; }
-.panel .panel-body .table thead tr th:nth-of-type(3){ width: 50%; }
+.panel .panel-body .table thead tr th:nth-of-type(3){ width: 30%; }
 .panel .panel-body .table tbody tr td{
     color: #555;
     background: #fff;
@@ -271,24 +271,24 @@
 
 body{
    background-color: #B0DBEE;
-   
+
    #form{
       color: white;
       background-color: #009EDF;
       border-radius: 5px;
-      
-      width: 400px;
+
+      width: 70%;
       padding: 40px;
       margin: 10px auto;
-      
+
       -webkit-box-shadow: -1px 3px 18px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: -1px 3px 18px 0px rgba(0,0,0,0.75);
       box-shadow: -1px 3px 18px 0px rgba(0,0,0,0.75);
-      
+
       p{
          font-size: 0.9em;
       }
-      
+
       button{
          width: 100%;
          text-align: center;
@@ -296,35 +296,35 @@ body{
          margin-top: 20px;
          border: 1px solid rgba(0,0,0,0.4);
       }
-      
+
       .form-group{
          margin: 15px auto;
-           
+
          label{
             font-weight: bold;
             font-size: 0.9em;
          }
-         
+
          .input-group{
             border-radius: 5px;
             -webkit-box-shadow: -1px 3px 18px 0px rgba(0,0,0,0.35);
             -moz-box-shadow: -1px 3px 18px 0px rgba(0,0,0,0.35);
             box-shadow: -1px 3px 18px 0px rgba(0,0,0,0.35);
-            
+
             .input-group-addon{
                border: none;
                border-right: 1px solid rgba(0,0,0,0.2);
             }
-            
+
             input{
                padding-left: 10px;
             }
-            
+
             i{
                color: #009EDF;
             }
          }
-         
+
          input{
             padding: 3px;
             width: 100%;
@@ -364,8 +364,8 @@ body{
 </nav>
 
 
- 
-       
+
+
     <div class="container mt-4">
         @yield('content')
     </div>

@@ -18,7 +18,6 @@ class EpreuveController extends Controller
     {
         $eps = Epreuve::all();
 
-
         return view('affEpreuve', ['epreuves' => $eps]);
     }
 
@@ -27,7 +26,9 @@ class EpreuveController extends Controller
      */
     public function create()
     {
-        return view(view: 'formEpreuve');
+        $matieres = Matiere::get();
+
+        return view('formEp', compact('matieres'));
     }
 
     /**
@@ -91,8 +92,8 @@ class EpreuveController extends Controller
      */
     public function destroy(string $id)
     {
-        $mat=Epreuve::find($id);
-        $mat->delete();
+        $ep=Epreuve::find($id);
+        $ep->delete();
         return redirect(route('epreuves.index'));
     }
 }

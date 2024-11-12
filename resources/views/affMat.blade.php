@@ -22,6 +22,7 @@
                                 <th>Code</th>
                                 <th>Libelle</th>
                                 <th>Coefficient</th>
+                                <th>Epreuves</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -32,12 +33,21 @@
                                 <td>{{ $matiere->Libelle }}</td>
                                 <td>{{ $matiere->Coef }}</td>
                                 <td>
+                                    <select class="custom-select" name="mt">
+                                        @foreach($matiere->epreuves as $ep)
+                                        <option>{{ $ep->Numero}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td>
                                     <a href="{{route('matieres.edit',$matiere)}}" type="submit" class="btn btn-secondary">Edit</a>
-                                    <form action="{{ route('matieres.destroy', $matiere) }}"style="display: inline;">
+
+                                    <form action="{{ route('matieres.destroy', $matiere) }}" method="post" style="display: inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
+
                                 </td>
 
                             </tr>

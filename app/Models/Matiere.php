@@ -9,7 +9,7 @@ class Matiere extends Model
 {
     use HasFactory;
     public function epreuves()
-{ 
-    return $this->hasMany(Epreuve::class); 
+{
+    return $this->hasMany(Epreuve::class);
 }
 }

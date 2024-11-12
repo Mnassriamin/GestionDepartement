@@ -16,8 +16,7 @@ class MatiereController extends Controller
     {
         $matieres = Matiere::all();
 
-
-        return view('affMat', ['matieres' => $matieres]);
+        return view('affMat', compact('matieres'));
     }
 
     /**
@@ -25,6 +24,7 @@ class MatiereController extends Controller
      */
     public function create()
     {
+
         return view(view: 'formMat');
     }
 
